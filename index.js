@@ -20,7 +20,10 @@ const pathToCrittr = NODE_ENV === 'development' && !IS_NPM_PACKAGE ? 'lib' : 'li
  */
 export default async options => {
     log.time('Crittr Run');
-    const { Crittr } = await import(path.join(__dirname, pathToCrittr, 'classes', 'Crittr.class.js'));
+
+    const crittrClassPath = path.join(__dirname, pathToCrittr, 'classes', 'Crittr.class.js');
+    const crittrModuleURL = url.pathToFileURL(crittrClassPath).href;
+    const { Crittr } = await import(crittrModuleURL);
 
     let crittr;
     let resultObj = { critical: null, rest: null };
