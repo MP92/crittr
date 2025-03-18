@@ -1,0 +1,143 @@
+@charset "UTF-8";
+
+@font-face {
+    font-family: 'Keep Critical';
+    src: url('ONLY TEST');
+}
+
+body {
+    font-size: 1em;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.standard-selector {
+    color: black;
+}
+
+/* FOR DUPLICATE TEST */
+.standard-selector {
+    color: black;
+}
+
+#id-selector {
+    color: blue;
+}
+
+div {
+    color: darkgrey;
+}
+
+.child-selector > * {
+    color: brown;
+}
+
+.sibling-selector + .sibling {
+    color: green;
+}
+
+.sibling-general-selector ~ .sibling {
+    color: aqua;
+}
+
+.property-selector[data-test='test'] {
+    color: bisque;
+}
+
+.group-selector .deep1 .deep2 {
+    color: chartreuse;
+}
+
+.multi-selector,
+.multi-selector-1,
+.multi-selector-2 {
+    color: darkmagenta;
+}
+
+.multi-selector,
+.no-atf-css {
+    color: red;
+}
+
+.no-atf-css-default {
+    color: tomato;
+}
+
+.forceInclude {
+    color: deeppink;
+}
+
+.multi-selector,
+.forceInclude,
+.multi-selector-not-exists {
+    content: 'forceIncludeMultiSelector';
+}
+
+.forceExclude {
+    color: royalblue;
+}
+
+.multi-selector,
+.forceExclude,
+.multi-selector-1 {
+    content: 'forceExcludeMultiSelector';
+}
+
+:root .not-existing-selector {
+    content: 'should not be included';
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-size: 22px;
+}
+
+.vendor_prefix {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.pseudo-selector::after {
+    color: limegreen;
+    content: 'pseudo :after';
+}
+
+.pseudo-selector::before {
+    color: silver;
+    content: 'pseudo ::before';
+}
+
+.multi-selector,
+.not-exists .remaining-css,
+.multi-selector-1 {
+    content: 'should only have multi-selector and multi-selector-1 in criticalcss';
+}
+
+.pre .wildcard_test_1 .post {
+    content: 'wildcard test [not included in HTML] - SHOULD BE INCLUDED';
+}
+
+.pre .wildcard_test_2 .post {
+    content: 'wildcard test [not included in HTML] - SHOULD NOT BE INCLUDED';
+}
+
+.wildcard_test_3.space {
+    content: 'SHOULD NOT BE INCLUDED';
+}
+
+@supports (display: flex) {
+    .supports-selector {
+        content: 'supports test - should be included';
+    }
+}
+
+@supports (display: flex) {
+    .supports-selector-not-included {
+        content: 'supports test - not included';
+    }
+}

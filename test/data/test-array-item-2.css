@@ -1,0 +1,126 @@
+@charset "UTF-8";
+
+@media (min-width: 1024px) {
+    .standard-selector {
+        color: black;
+        content: '.standard-selector 1024';
+    }
+
+    #id-selector {
+        color: blue;
+        content: '#id-selector 1024';
+    }
+
+    div {
+        color: darkgrey;
+        content: 'div 1024';
+    }
+
+    .pseudo-selector::after {
+        color: limegreen;
+        content: 'pseudo 1024 :after';
+    }
+
+    .pseudo-selector::before {
+        color: silver;
+        content: 'pseudo 1024 ::before';
+    }
+
+    .no-atf-css-default-1024 {
+        color: tomato;
+    }
+
+    .forceInclude {
+        color: deeppink;
+    }
+
+    .forceExclude {
+        color: royalblue;
+    }
+
+    .multi-selector,
+    .not-exists-mq-1024 .remaining-css,
+    .multi-selector-1 {
+        content: 'should only have multi-selector and multi-selector-1 in criticalcss';
+    }
+}
+
+@media (min-width: 1024px) {
+    .standard-selector {
+        content: 'double media query 1024 .standard-selector';
+    }
+}
+
+@media (min-width: 1024px) {
+    .standard-selector {
+        content: 'double media query 1024 .standard-selector';
+    }
+}
+
+@media (min-width: 900px) {
+    .no-atf-css-default {
+        color: gold;
+    }
+
+    .standard-selector {
+        color: black;
+        content: '.standard-selector 800';
+    }
+}
+
+@media (min-width: 800px) {
+    .standard-selector {
+        color: black;
+        content: '.standard-selector 800';
+    }
+
+    #id-selector {
+        color: blue;
+        content: '#id-selector 800';
+    }
+
+    div {
+        color: darkgrey;
+        content: 'div 800';
+    }
+
+    .no-atf-css-default-800 {
+        color: tomato;
+    }
+
+    .forceInclude {
+        color: deeppink;
+    }
+
+    .forceExclude {
+        color: royalblue;
+    }
+
+    @supports (display: flex) {
+        .supports-selector {
+            content: 'supports test mq - should be included';
+        }
+    }
+
+    @supports (display: flex) {
+        .supports-selector-not-included {
+            content: 'supports test - not included';
+        }
+    }
+}
+
+@media (max-width: 1337px) {
+    .no-selector {
+        content: 'just no';
+    }
+    .standard-selector {
+        color: black;
+        content: '.standard-selector 800';
+    }
+}
+
+@media (max-width: 337px) {
+    .no-selector {
+        content: 'just no';
+    }
+}

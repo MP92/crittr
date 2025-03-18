@@ -15,6 +15,11 @@ const testData = {
     css: rootDir + '/test/data/test.css',
 };
 
+const testDataArrayCSS = {
+    urls: ['./test/data/test.html?1', './test/data/test.html?2', './test/data/test.html?3', './test/data/test.html?4'],
+    css: [rootDir + '/test/data/test-array-item-1.css', rootDir + '/test/data/test-array-item-2.css'],
+};
+
 const testDataNoCSS = {
     urls: [
         'http://localhost:8000/test/data/test.html?1',
@@ -41,6 +46,11 @@ const standardOptions = merge(defaultOptions, {
 const noCssOptions = merge(defaultOptions, {
     urls: testDataNoCSS.urls,
     css: null,
+});
+
+const arrayCssOptions = merge(defaultOptions, {
+    urls: testDataArrayCSS.urls,
+    css: testDataArrayCSS.css,
 });
 
 const screenshotOptions = merge(defaultOptions, {
@@ -113,6 +123,13 @@ export default () => {
                         screenshotWithFunctionCssRest,
                         'utf-8',
                     );
+
+                    // Fifth Run for URL
+                    const { critical: arrayCssCritical, rest: arrayCssRest } = await Critter(arrayCssOptions);
+
+                    fs.writeFileSync(path.join(testResultDir, './test_result_array_css.css'), arrayCssCritical, 'utf-8');
+
+                    fs.writeFileSync(path.join(testResultDir, './test_result_array_css_remaining.css'), arrayCssRest, 'utf-8');
 
                     resolve();
                 } catch (err) {
