@@ -40,7 +40,8 @@ div {
     color: aqua;
 }
 
-.property-selector[data-test='test'] {
+/* prettier-ignore */
+.property-selector[data-test="test"] {
     color: bisque;
 }
 
