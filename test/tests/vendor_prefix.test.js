@@ -1,6 +1,6 @@
 import fs from 'fs-extra';
 import path from 'path';
-import css from 'css';
+import { parse } from '@adobe/css-tools';
 import url from 'url';
 
 const __dirname = url.fileURLToPath(new URL('.', import.meta.url));
@@ -11,7 +11,7 @@ describe('Vendor Prefix Test', () => {
     describe('Check Vendor Prefix Exists', () => {
         const resultCSS = fs.readFileSync(path.join(testResultDir, 'test_result.css'), 'utf8');
 
-        const resultAstRules = css.parse(resultCSS).stylesheet.rules;
+        const resultAstRules = parse(resultCSS).stylesheet.rules;
 
         test('Vendor prefixes still exists', () => {
             const vendorPrefixRule = resultAstRules.find(rule => rule.type === 'rule' && rule.selectors.includes('.vendor_prefix'));

@@ -1,6 +1,6 @@
 import fs from 'fs-extra';
 import path from 'path';
-import css from 'css';
+import { parse } from '@adobe/css-tools';
 import url from 'url';
 const __dirname = url.fileURLToPath(new URL('.', import.meta.url));
 const rootDir = path.join(__dirname, '..', '..');
@@ -10,8 +10,8 @@ describe('Media Query Special Tests', () => {
     describe('Media Query Order', () => {
         const resultCSS = fs.readFileSync(path.join(testResultDir, 'test_result_array_css.css'), 'utf8');
         const remainingCSS = fs.readFileSync(path.join(testResultDir, 'test_result_array_css_remaining.css'), 'utf8');
-        const resultAstRules = css.parse(resultCSS).stylesheet.rules;
-        const remainingAstRules = css.parse(remainingCSS).stylesheet.rules;
+        const resultAstRules = parse(resultCSS).stylesheet.rules;
+        const remainingAstRules = parse(remainingCSS).stylesheet.rules;
 
         let mediaRulesArr = [];
         for (const rule of resultAstRules) {

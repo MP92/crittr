@@ -1,6 +1,6 @@
 import fs from 'fs-extra';
 import path from 'path';
-import css from 'css';
+import { parse } from '@adobe/css-tools';
 import helpers from './../helpers.js';
 import Rule from '../../lib/classes/Rule.class.js';
 import url from 'url';
@@ -14,8 +14,8 @@ describe('Basic Array CSS Test', () => {
 
         const remainingCSS = fs.readFileSync(path.join(testResultDir, 'test_result_array_css_remaining.css'), 'utf8');
 
-        const resultAstRules = css.parse(resultCSS).stylesheet.rules;
-        const remainingAstRules = css.parse(remainingCSS).stylesheet.rules;
+        const resultAstRules = parse(resultCSS).stylesheet.rules;
+        const remainingAstRules = parse(remainingCSS).stylesheet.rules;
 
         const criticalSelectorRules = helpers.getAstRules(resultAstRules);
 
