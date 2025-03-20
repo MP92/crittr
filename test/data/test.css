@@ -131,6 +131,147 @@ h6 {
     content: 'SHOULD NOT BE INCLUDED';
 }
 
+/* === BEGIN :is selectors === */
+:is(.critical-is) {
+    border: 1px solid #ccc;
+}
+
+/* at the beginning */
+:is(.critical-is) > b {
+    color: hotpink;
+}
+
+/* in the middle */
+.critical-is :is(header, footer) > span {
+    color: gray;
+}
+
+/* at the end */
+.critical-is :is(button, a) {
+    color: rebeccapurple;
+}
+
+/* multiple */
+:is(.critical-is, .critical-is-2) :is(button, a) {
+    color: forestgreen;
+}
+
+/* stacked */
+:is(.critical-is, .critical-is-2):is(section, div) {
+    text-transform: uppercase;
+}
+
+/* nested */
+.critical-is:is(section, div, :is(.section, .div)) {
+    background-color: lime;
+}
+
+:is(.btf-is) > b {
+    color: hotpink;
+}
+
+.btf-is:is(section, div, :is(.section, .div)) {
+    background-color: lime;
+}
+/* === END :is selectors === */
+
+/* === BEGIN :where selectors === */
+:where(.critical-where) {
+    border: 1px solid #ccc;
+}
+
+/* at the beginning */
+:where(.critical-where) > b {
+    color: hotpink;
+}
+
+/* in the middle */
+.critical-where :where(header, footer) > span {
+    color: gray;
+}
+
+/* at the end */
+.critical-where :where(button, a) {
+    color: rebeccapurple;
+}
+
+/* multiple */
+:where(.critical-where, .critical-where-2) :where(button, a) {
+    color: forestgreen;
+}
+
+/* stacked */
+:where(.critical-where, .critical-where-2):where(section, div) {
+    text-transform: uppercase;
+}
+
+/* nested */
+.critical-where:where(section, div, :where(.section, .div)) {
+    background-color: lime;
+}
+
+:where(.btf-where) > b {
+    color: hotpink;
+}
+
+.btf-where:where(section, div, :where(.section, .div)) {
+    background-color: lime;
+}
+/* === END :where selectors === */
+
+/* === BEGIN :not selectors === */
+:not(:not(.critical-not)) {
+    background: lemonchiffon;
+}
+
+.critical-not:not([id]) {
+    border: 2px dashed dimgrey;
+}
+
+/* prettier-ignore */
+.critical-not input:not(:required, [type="button"]) {
+    background: chocolate;
+}
+
+.critical-not input:not(div > input) {
+    border: 2px solid greenyellow;
+}
+
+.critical-not span:not([class]):not(:last-child) {
+    background: burlywood;
+}
+
+:not(:not(.btf-not)) {
+    font-size: 8px;
+}
+
+.btf-not span:not([class]):not(:last-child) {
+    background: burlywood;
+}
+/* === END :not selectors === */
+
+/* === BEGIN :has selectors === */
+:has(> .critical-has-inner) {
+    background-color: lightsalmon;
+}
+
+.critical-has-inner:has(+ span) {
+    box-shadow: inset 0 0 4px 0 black;
+}
+
+.critical-has:has(.critical-has-inner):has(a) span {
+    color: white;
+}
+
+:has(> .btf-has-inner) {
+    background-color: lightsalmon;
+}
+
+.btf-has:has(> span) {
+    box-shadow: inset 0 0 0 4px black;
+}
+/* === END :has selectors === */
+
 @supports (display: flex) {
     .supports-selector {
         content: 'supports test - should be included';

@@ -1,5 +1,17 @@
 @charset "UTF-8";
 
+@supports (display: flex) {
+    .supports-selector {
+        content: 'supports test - should be included';
+    }
+}
+
+@supports (display: flex) {
+    .supports-selector-not-included {
+        content: 'supports test - not included';
+    }
+}
+
 @media (min-width: 1024px) {
     .standard-selector {
         color: black;

@@ -37,6 +37,34 @@ export const basicNoCSSTests = ({ prefix, criticalCssFileName, remainingCssFileN
             '.pseudo-selector::before',
             '.pre .wildcard_test_1 .post',
         ],
+        functionalPseudoClasses: [
+            // :is selectors
+            ':is(.critical-is)',
+            ':is(.critical-is) > b',
+            '.critical-is :is(header, footer) > span',
+            '.critical-is :is(button, a)',
+            ':is(.critical-is, .critical-is-2) :is(button, a)',
+            ':is(.critical-is, .critical-is-2):is(section, div)',
+            '.critical-is:is(section, div, :is(.section, .div))',
+            // :where selectors
+            ':where(.critical-where)',
+            ':where(.critical-where) > b',
+            '.critical-where :where(header, footer) > span',
+            '.critical-where :where(button, a)',
+            ':where(.critical-where, .critical-where-2) :where(button, a)',
+            ':where(.critical-where, .critical-where-2):where(section, div)',
+            '.critical-where:where(section, div, :where(.section, .div))',
+            // :not selectors
+            ':not(:not(.critical-not))',
+            '.critical-not:not([id])',
+            '.critical-not input:not(:required, [type="button"])',
+            '.critical-not input:not(div > input)',
+            '.critical-not span:not([class]):not(:last-child)',
+            // :has selectors
+            ':has(> .critical-has-inner)',
+            '.critical-has-inner:has(+ span)',
+            '.critical-has:has(.critical-has-inner):has(a) span',
+        ],
         media1024: ['.standard-selector', '#id-selector', 'div', '.forceInclude', '.pseudo-selector::after', '.pseudo-selector::before'],
         media800: ['.standard-selector', '#id-selector', '.forceInclude'],
     };
@@ -49,6 +77,20 @@ export const basicNoCSSTests = ({ prefix, criticalCssFileName, remainingCssFileN
             'h2,h3,h4,h5,h6',
             '.pre .wildcard_test_2 .post',
             '.wildcard_test_3.space',
+        ],
+        functionalPseudoClasses: [
+            // :is selectors
+            ':is(.btf-is) > b',
+            '.btf-is:is(section, div, :is(.section, .div))',
+            // :where selectors
+            ':where(.btf-where) > b',
+            '.btf-where:where(section, div, :where(.section, .div))',
+            // :not selectors
+            ':not(:not(.btf-not))',
+            '.btf-not span:not([class]):not(:last-child)',
+            // :has selectors
+            ':has(> .btf-has-inner)',
+            '.btf-has:has(> span)',
         ],
         media1024: ['.forceExclude', '.no-atf-css-default-1024'],
         media800: ['.forceExclude', '.no-atf-css-default-800'],
@@ -68,6 +110,26 @@ export const basicNoCSSTests = ({ prefix, criticalCssFileName, remainingCssFileN
         test(`${prefix} Standard selectors should NOT be included`, () => {
             const falseIncludedSelectors = [];
             for (const selector of mustMissSelectors.standard) {
+                if (criticalSelectorRules.has(selector)) {
+                    falseIncludedSelectors.push(selector);
+                }
+            }
+            expect(falseIncludedSelectors).toHaveLength(0);
+        });
+
+        test(`${prefix} :is, :where, :has, :not selectors should be included`, () => {
+            const missingSelectors = [];
+            for (const selector of mustHaveSelectors.functionalPseudoClasses) {
+                if (!criticalSelectorRules.has(selector)) {
+                    missingSelectors.push(selector);
+                }
+            }
+            expect(missingSelectors).toHaveLength(0);
+        });
+
+        test(`${prefix} Non critical :is, :where, :has, :not selectors should NOT be included`, () => {
+            const falseIncludedSelectors = [];
+            for (const selector of mustMissSelectors.functionalPseudoClasses) {
                 if (criticalSelectorRules.has(selector)) {
                     falseIncludedSelectors.push(selector);
                 }

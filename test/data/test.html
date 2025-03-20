@@ -56,6 +56,66 @@
         <!-- Should NOT be contained even if in atf -->
         <div class="forceExclude">Class .forceExclude</div>
 
+        <hr />
+
+        <!-- BEGIN :is selector critical elements -->
+        <section class="critical-is">
+            <header><span>critical-is-header</span></header>
+            <b>Lorem ipsum.</b>
+            <button>critical-is-button</button>
+            <a>critical-is-link</a>
+            <footer><span>critical-is-footer</span></footer>
+        </section>
+
+        <div class="critical-is-2">
+            <button>critical-is-2-button</button>
+            <a>critical-is-2-link</a>
+        </div>
+        <!-- END :is selector critical elements -->
+
+        <hr />
+
+        <!-- BEGIN :where selector critical elements -->
+        <section class="critical-where">
+            <header><span>critical-where-header</span></header>
+            <b>Lorem ipsum.</b>
+            <button>critical-where-button</button>
+            <a>critical-where-link</a>
+            <footer><span>critical-where-footer</span></footer>
+        </section>
+
+        <div class="critical-where-2">
+            <button>critical-where-2-button</button>
+            <a>critical-where-2-link</a>
+        </div>
+        <!-- END :where selector critical elements -->
+
+        <hr />
+
+        <!-- BEGIN :not selector critical elements -->
+        <section class="critical-not">
+            <div>
+                <input type="button" value="Unstyled" />
+            </div>
+
+            <input type="text" value="Styled border + background" />
+            <input type="button" value="Styled border" />
+
+            <span>With bg</span>
+            <span class="any-class">No bg</span>
+            <span>No bg</span>
+        </section>
+        <!-- END :not selector critical elements -->
+
+        <hr />
+
+        <!-- BEGIN :has selector critical elements -->
+        <section class="critical-has">
+            <div class="critical-has-inner"><a href="#">.critical-has > .critical-has-inner > a</a></div>
+            <span>.critical-has > span</span>
+        </section>
+        <!-- END :has selector critical elements -->
+
         <!-- IS OUT OF ATF BELOW THIS COMMENT -->
         <div style="width: 100%; height: 1000px; font-weight: bold; font-size: 2em; background-color: darkslategray; color: beige">
             This DIV should simulate content. Content below is not included in ATF
@@ -68,5 +128,25 @@
         <h3>Element h3</h3>
 
         <div class="supports-selector-not-included">Class .supports-selector-not-included</div>
+
+        <section class="btf-is">
+            <b>Lorem ipsum.</b>
+        </section>
+
+        <section class="btf-where">
+            <b>Lorem ipsum.</b>
+        </section>
+
+        <article data-btf-not>font-size: 8px; font-weight: 700;</article>
+        <section class="btf-not">
+            <span>With bg</span>
+            <span class="any-class">No bg</span>
+            <span>No bg</span>
+        </section>
+
+        <section class="btf-has">
+            <div class="btf-has-inner"><a href="#">.btf-has > .btf-has-inner > a</a></div>
+            <span>.critical-has > span</span>
+        </section>
     </body>
 </html>
