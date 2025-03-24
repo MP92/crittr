@@ -1,5 +1,5 @@
 import { createRequire } from 'node:module';
-import log from '@dynamicabot/signales';
+import { log } from './lib/helper/log.js';
 import path from 'path';
 import url from 'url';
 const __dirname = url.fileURLToPath(new URL('.', import.meta.url));
