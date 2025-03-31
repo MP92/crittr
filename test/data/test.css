@@ -24,7 +24,7 @@ body {
     color: blue;
 }
 
-div {
+address {
     color: darkgrey;
 }
 
@@ -272,6 +272,15 @@ h6 {
 }
 /* === END :has selectors === */
 
+.display-contents {
+    display: contents;
+}
+
+.btf-display-contents {
+    display: contents;
+    color: red;
+}
+
 @supports (display: flex) {
     .supports-selector {
         content: 'supports test - should be included';
@@ -295,9 +304,9 @@ h6 {
         content: '#id-selector 1024';
     }
 
-    div {
+    address {
         color: darkgrey;
-        content: 'div 1024';
+        content: 'address 1024';
     }
 
     .pseudo-selector::after {
@@ -363,9 +372,9 @@ h6 {
         content: '#id-selector 800';
     }
 
-    div {
+    address {
         color: darkgrey;
-        content: 'div 800';
+        content: 'address 800';
     }
 
     .no-atf-css-default-800 {

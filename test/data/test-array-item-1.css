@@ -24,7 +24,7 @@ body {
     color: blue;
 }
 
-div {
+address {
     color: darkgrey;
 }
 
@@ -271,3 +271,12 @@ h6 {
     box-shadow: inset 0 0 0 4px black;
 }
 /* === END :has selectors === */
+
+.display-contents {
+    display: contents;
+}
+
+.btf-display-contents {
+    display: contents;
+    color: red;
+}

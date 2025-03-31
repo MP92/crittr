@@ -23,7 +23,7 @@ export const basicNoCSSTests = ({ prefix, criticalCssFileName, remainingCssFileN
         standard: [
             '.standard-selector',
             '#id-selector',
-            'div',
+            'address',
             '.child-selector > *',
             '.sibling-selector + .sibling',
             '.sibling-general-selector ~ .sibling',
@@ -36,6 +36,7 @@ export const basicNoCSSTests = ({ prefix, criticalCssFileName, remainingCssFileN
             '.pseudo-selector::after',
             '.pseudo-selector::before',
             '.pre .wildcard_test_1 .post',
+            '.display-contents',
         ],
         functionalPseudoClasses: [
             // :is selectors
@@ -65,7 +66,7 @@ export const basicNoCSSTests = ({ prefix, criticalCssFileName, remainingCssFileN
             '.critical-has-inner:has(+ span)',
             '.critical-has:has(.critical-has-inner):has(a) span',
         ],
-        media1024: ['.standard-selector', '#id-selector', 'div', '.forceInclude', '.pseudo-selector::after', '.pseudo-selector::before'],
+        media1024: ['.standard-selector', '#id-selector', 'address', '.forceInclude', '.pseudo-selector::after', '.pseudo-selector::before'],
         media800: ['.standard-selector', '#id-selector', '.forceInclude'],
     };
 
@@ -77,6 +78,7 @@ export const basicNoCSSTests = ({ prefix, criticalCssFileName, remainingCssFileN
             'h2,h3,h4,h5,h6',
             '.pre .wildcard_test_2 .post',
             '.wildcard_test_3.space',
+            '.btf-display-contents',
         ],
         functionalPseudoClasses: [
             // :is selectors

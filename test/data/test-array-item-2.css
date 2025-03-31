@@ -23,9 +23,9 @@
         content: '#id-selector 1024';
     }
 
-    div {
+    address {
         color: darkgrey;
-        content: 'div 1024';
+        content: 'address 1024';
     }
 
     .pseudo-selector::after {
@@ -91,9 +91,9 @@
         content: '#id-selector 800';
     }
 
-    div {
+    address {
         color: darkgrey;
-        content: 'div 800';
+        content: 'address 800';
     }
 
     .no-atf-css-default-800 {
