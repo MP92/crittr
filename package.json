@@ -14,7 +14,7 @@
         "type": "git",
         "url": "git+https://github.com/hummal/crittr.git"
     },
-    "types": "./dist/index.d.ts",
+    "types": "./types/crittr.d.ts",
     "keywords": [
         "critical",
         "css",
